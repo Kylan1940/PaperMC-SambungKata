@@ -46,4 +46,40 @@ public class Game {
     public void setState(GameState state) {
         this.state = state;
     }
+
+    private int points = 0;
+    private int mistakes = 0;
+    private int time = 15;
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void addPoint() {
+        points++;
+    }
+
+    public int getMistakes() {
+        return mistakes;
+    }
+
+    public void addMistake() {
+        mistakes++;
+    }
+
+    public void resetMistakes() {
+        mistakes = 0;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void resetTime() {
+        time = 15;
+    }
+
+    public void reduceTime() {
+        time--;
+    }
 }

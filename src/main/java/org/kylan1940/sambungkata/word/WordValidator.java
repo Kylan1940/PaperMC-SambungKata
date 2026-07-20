@@ -5,25 +5,25 @@ import org.kylan1940.sambungkata.game.Game;
 
 public class WordValidator {
 
-    public static boolean validate(Game game, String word){
+    public static ValidationResult validate(Game game, String word) {
 
-        word = word.toLowerCase();
+        word = word.toLowerCase().trim();
 
-        if(!SambungKata.getInstance().getWordManager().exists(word))
-            return false;
+        if (!SambungKata.getInstance().getWordManager().exists(word))
+            return ValidationResult.WORD_NOT_FOUND;
 
-        if(game.getUsedWords().contains(word))
-            return false;
+        if (game.getUsedWords().contains(word))
+            return ValidationResult.WORD_ALREADY_USED;
 
-        if(game.getLastWord() == null)
-            return true;
+        if (game.getLastWord() == null)
+            return ValidationResult.VALID;
 
         String last = game.getLastWord();
 
-        return word.startsWith(
-                last.substring(last.length()-1)
-        );
+        if (!word.startsWith(last.substring(last.length() - 1)))
+            return ValidationResult.INVALID_PREFIX;
 
+        return ValidationResult.VALID;
     }
 
 }

@@ -1,0 +1,91 @@
+# ===========================================================================
+#  ___             _                     _  __     _
+# / __| __ _ _ __ | |__ _  _ _ _  __ _  | |/ /__ _| |_ __ _
+# \__ \/ _` | '  \| '_ \ || | ' \/ _` | | ' </ _` |  _/ _` |
+# |___/\__,_|_|_|_|_.__/\_,_|_||_\__, | |_|\_\__,_|\__\__,_|
+#                                |___/
+# ===========================================================================
+# Report Plugin: https://github.com/Kylan1940/SambungKata/issues/new
+# ===========================================================================
+# Github: https://github.com/Kylan1940
+# Website: https://kylan1940.netlify.app
+# ===========================================================================
+
+# SAMBUNG KATA CONFIGURATION
+#
+# HELP
+# %word%     : Kata yang baru saja dimasukkan
+# %next%     : Huruf terakhir (awalan kata berikutnya)
+# %score%    : Jumlah poin pemain
+# %mistake%  : Jumlah kesalahan pemain
+# %time%     : Sisa waktu permainan
+
+messages:
+
+  prefix: "&6&lSambungKata &8» "
+
+  game-start:
+    - ""
+    - "&6&l━━━━━━━━━━━━━━━━━━━━━━━━"
+    - "&e&l      SAMBUNG KATA"
+    - "&6&l━━━━━━━━━━━━━━━━━━━━━━━━"
+    - "&aGame berhasil dimulai!"
+    - ""
+    - "&7- Kata pertama bebas"
+    - "&7- Ketik jawaban melalui chat"
+    - "&7- Kata tidak boleh diulang"
+    - ""
+    - "&eMasukkan kata pertama!"
+    - ""
+
+  accepted:
+    - ""
+    - "&a&lKATA DITERIMA"
+    - ""
+    - "&7Kata : &f%word%"
+    - "&7Points : &e%score%"
+    - ""
+    - "&eKata berikutnya dimulai dari"
+    - "&6&l%next%"
+    - ""
+
+  already-used:
+    - ""
+    - "&6&lKATA SUDAH DIGUNAKAN"
+    - ""
+    - "&7'%word%' sudah pernah digunakan."
+    - "&eGunakan kata lain."
+    - ""
+    - "&cKesalahan: &f%mistake%&7/3"
+    - ""
+
+  invalid-prefix:
+    - ""
+    - "&c&lAWALAN SALAH"
+    - ""
+    - "&7Harus dimulai dari"
+    - "&6&l%next%"
+    - ""
+    - "&cKesalahan: &f%mistake%&7/3"
+    - ""
+
+  not-found:
+    - ""
+    - "&c&lKATA TIDAK DITEMUKAN"
+    - ""
+    - "&7'%word%' tidak ada di kamus."
+    - ""
+    - "&cKesalahan: &f%mistake%&7/3"
+    - ""
+
+  mistake:
+    - "&cJawaban salah!"
+    - "&7Kesalahan: &f%mistake%&7/3"
+
+  game-over:
+    - ""
+    - "&c&lGAME OVER"
+    - ""
+    - "&7Score akhir: &e%score%"
+    - "&7Total kesalahan: &c%mistake%"
+    - ""

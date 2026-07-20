@@ -6,10 +6,11 @@ import org.kylan1940.sambungkata.game.GameManager;
 import org.kylan1940.sambungkata.listener.ChatListener;
 import org.kylan1940.sambungkata.word.WordManager;
 
+import java.io.File;
+
 public class SambungKata extends JavaPlugin {
 
     private static SambungKata instance;
-
     private WordManager wordManager;
     private GameManager gameManager;
 
@@ -18,21 +19,24 @@ public class SambungKata extends JavaPlugin {
 
         instance = this;
 
-        saveResource("words.txt", false);
+        saveDefaultConfig();
+
+        File words = new File(getDataFolder(), "words.txt");
+        if (!words.exists())
+            saveResource("words.txt", false);
 
         wordManager = new WordManager(this);
         wordManager.load();
 
         gameManager = new GameManager();
 
-        getCommand("sambung").setExecutor(new SambungCommand(gameManager));
+        getCommand("sambung")
+                .setExecutor(new SambungCommand(gameManager));
 
-        getServer().getPluginManager().registerEvents(
-                new ChatListener(gameManager),
-                this
-        );
+        getServer().getPluginManager()
+                .registerEvents(new ChatListener(gameManager), this);
 
-        getLogger().info("Loaded " + wordManager.size() + " words.");
+        getLogger().info("Loaded " + wordManager.size() + " words");
     }
 
     public static SambungKata getInstance() {
