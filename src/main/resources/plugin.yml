@@ -1,0 +1,8 @@
+name: SambungKata
+version: 1.0
+main: org.kylan1940.sambungkata.SambungKata
+api-version: '1.21'
+
+commands:
+  sambung:
+    description: Start game
