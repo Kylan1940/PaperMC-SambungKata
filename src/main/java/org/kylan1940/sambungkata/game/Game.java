@@ -1,6 +1,7 @@
 package org.kylan1940.sambungkata.game;
 
 import org.bukkit.entity.Player;
+import org.kylan1940.sambungkata.SambungKata;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -49,7 +50,7 @@ public class Game {
 
     private int points = 0;
     private int mistakes = 0;
-    private int time = 15;
+    private int time = SambungKata.getInstance().getGameTimer();
 
     public int getPoints() {
         return points;
@@ -76,7 +77,7 @@ public class Game {
     }
 
     public void resetTime() {
-        time = 15;
+        time = SambungKata.getInstance().getGameTimer();
     }
 
     public void reduceTime() {

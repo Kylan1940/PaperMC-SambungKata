@@ -38,7 +38,7 @@ public class MessageUtil {
                 Component.text(
                         "§ePoints: §f" + game.getPoints()
                                 + " §8| "
-                                + "§cKesalahan: §f" + game.getMistakes() + "/3"
+                                + "§cKesalahan: §f" + game.getMistakes() + "/" + SambungKata.getInstance().getMaxMistakes()
                                 + " §8| "
                                 + "§aTimer: §f" + time + "s"
                 )

@@ -12,7 +12,6 @@ public class SambungKata extends JavaPlugin {
 
     private static SambungKata instance;
     private WordManager wordManager;
-    private GameManager gameManager;
 
     @Override
     public void onEnable() {
@@ -28,13 +27,11 @@ public class SambungKata extends JavaPlugin {
         wordManager = new WordManager(this);
         wordManager.load();
 
-        gameManager = new GameManager();
+        GameManager gameManager = new GameManager();
 
-        getCommand("sambung")
-                .setExecutor(new SambungCommand(gameManager));
+        getCommand("sambung").setExecutor(new SambungCommand(gameManager));
 
-        getServer().getPluginManager()
-                .registerEvents(new ChatListener(gameManager), this);
+        getServer().getPluginManager().registerEvents(new ChatListener(gameManager), this);
 
         getLogger().info("Loaded " + wordManager.size() + " words");
     }
@@ -45,5 +42,13 @@ public class SambungKata extends JavaPlugin {
 
     public WordManager getWordManager() {
         return wordManager;
+    }
+
+    public int getGameTimer() {
+        return getConfig().getInt("game.timer", 15);
+    }
+
+    public int getMaxMistakes() {
+        return getConfig().getInt("game.max-mistakes", 3);
     }
 }

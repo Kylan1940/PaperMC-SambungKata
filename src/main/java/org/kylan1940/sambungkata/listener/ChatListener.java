@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.kylan1940.sambungkata.SambungKata;
 import org.kylan1940.sambungkata.game.Game;
 import org.kylan1940.sambungkata.game.GameManager;
 import org.kylan1940.sambungkata.message.MessageUtil;
@@ -37,20 +38,20 @@ public class ChatListener implements Listener {
 
             case WORD_NOT_FOUND -> {
                 game.addMistake();
-                MessageUtil.send(player, "messages.not-found", "%word%", word, "%mistake%", String.valueOf(game.getMistakes()));
+                MessageUtil.send(player, "messages.not-found", "%word%", word, "%mistake%", String.valueOf(game.getMistakes()), "%max_mistake%", String.valueOf(SambungKata.getInstance().getMaxMistakes()));
                 checkGameOver(player, game);
             }
 
             case WORD_ALREADY_USED -> {
                 game.addMistake();
-                MessageUtil.send(player, "messages.already-used", "%word%", word, "%mistake%", String.valueOf(game.getMistakes()));
+                MessageUtil.send(player, "messages.already-used", "%word%", word, "%mistake%", String.valueOf(game.getMistakes()), "%max_mistake%", String.valueOf(SambungKata.getInstance().getMaxMistakes()));
                 checkGameOver(player, game);
             }
 
             case INVALID_PREFIX -> {
                 game.addMistake();
                 String next = game.getLastWord().substring(game.getLastWord().length() - 1).toUpperCase();
-                MessageUtil.send(player, "messages.invalid-prefix", "%next%", next, "%mistake%", String.valueOf(game.getMistakes()));
+                MessageUtil.send(player, "messages.invalid-prefix", "%next%", next, "%mistake%", String.valueOf(game.getMistakes()), "%max_mistake%", String.valueOf(SambungKata.getInstance().getMaxMistakes()));
                 checkGameOver(player, game);
             }
 
@@ -69,8 +70,8 @@ public class ChatListener implements Listener {
 
     private void checkGameOver(Player player, Game game) {
 
-        if(game.getMistakes() >= 3){
-            MessageUtil.send(player, "messages.game-over", "%score%", String.valueOf(game.getPoints()), "%mistake%", String.valueOf(game.getMistakes()));
+        if (game.getMistakes() >= SambungKata.getInstance().getMaxMistakes()) {
+            MessageUtil.send(player, "messages.game-over", "%score%", String.valueOf(game.getPoints()), "%mistake%", String.valueOf(game.getMistakes()), "%max_mistake%", String.valueOf(SambungKata.getInstance().getMaxMistakes()));
             manager.remove(player);
         }
     }

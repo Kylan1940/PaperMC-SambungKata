@@ -14,11 +14,16 @@
 # SAMBUNG KATA CONFIGURATION
 #
 # HELP
-# %word%     : Kata yang baru saja dimasukkan
-# %next%     : Huruf terakhir (awalan kata berikutnya)
-# %score%    : Jumlah poin pemain
-# %mistake%  : Jumlah kesalahan pemain
-# %time%     : Sisa waktu permainan
+# %word%        : Kata yang baru saja dimasukkan
+# %next%        : Huruf terakhir (awalan kata berikutnya)
+# %score%       : Jumlah poin pemain
+# %mistake%     : Jumlah kesalahan pemain
+# %max_mistake% : Maksimal kesalahan pemain
+# %time%        : Sisa waktu permainan
+
+game:
+  timer: 15
+  max-mistakes: 3
 
 messages:
 
@@ -56,7 +61,7 @@ messages:
     - "&7'%word%' sudah pernah digunakan."
     - "&eGunakan kata lain."
     - ""
-    - "&cKesalahan: &f%mistake%&7/3"
+    - "&cKesalahan: &f%mistake%&7/%max_mistake%"
     - ""
 
   invalid-prefix:
@@ -66,7 +71,7 @@ messages:
     - "&7Harus dimulai dari"
     - "&6&l%next%"
     - ""
-    - "&cKesalahan: &f%mistake%&7/3"
+    - "&cKesalahan: &f%mistake%&7/%max_mistake%"
     - ""
 
   not-found:
@@ -75,12 +80,12 @@ messages:
     - ""
     - "&7'%word%' tidak ada di kamus."
     - ""
-    - "&cKesalahan: &f%mistake%&7/3"
+    - "&cKesalahan: &f%mistake%&7/%max_mistake%"
     - ""
 
   mistake:
     - "&cJawaban salah!"
-    - "&7Kesalahan: &f%mistake%&7/3"
+    - "&7Kesalahan: &f%mistake%&7/%max_mistake%"
 
   game-over:
     - ""
