@@ -18,8 +18,11 @@
 # %next%        : Huruf terakhir (awalan kata berikutnya)
 # %score%       : Jumlah poin pemain
 # %mistake%     : Jumlah kesalahan pemain
-# %max_mistake% : Maksimal kesalahan pemain
+# %max_mistakes% : Maksimal kesalahan pemain
 # %time%        : Sisa waktu permainan
+
+# DON'T CHANGE THIS! (JANGAN GANTI INI)
+config-version: 1
 
 game:
   timer: 15
@@ -61,7 +64,7 @@ messages:
     - "&7'%word%' sudah pernah digunakan."
     - "&eGunakan kata lain."
     - ""
-    - "&cKesalahan: &f%mistake%&7/%max_mistake%"
+    - "&cKesalahan: &f%mistake%&7/%max_mistakes%"
     - ""
 
   invalid-prefix:
@@ -71,7 +74,7 @@ messages:
     - "&7Harus dimulai dari"
     - "&6&l%next%"
     - ""
-    - "&cKesalahan: &f%mistake%&7/%max_mistake%"
+    - "&cKesalahan: &f%mistake%&7/%max_mistakes%"
     - ""
 
   not-found:
@@ -80,12 +83,12 @@ messages:
     - ""
     - "&7'%word%' tidak ada di kamus."
     - ""
-    - "&cKesalahan: &f%mistake%&7/%max_mistake%"
+    - "&cKesalahan: &f%mistake%&7/%max_mistakes%"
     - ""
 
   mistake:
     - "&cJawaban salah!"
-    - "&7Kesalahan: &f%mistake%&7/%max_mistake%"
+    - "&7Kesalahan: &f%mistake%&7/%max_mistakes%"
 
   game-over:
     - ""

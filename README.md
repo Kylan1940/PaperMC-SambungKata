@@ -18,5 +18,14 @@ Plugin SambungKata diambil dari kosakata Bahasa Indonesia untuk PaperMC. If you 
 2. Put plugin to **plugins** file
 3. Restart the server
 
+# Commands
+| Command | Description |
+|---|---|
+| /sambung | Memulai room |
+| /sambung join <namaHost> | Join ke room sesuai nama Host yang memulai /sambung |
+| /sambung leave | Meninggalkan room |
+| /sambung list | Melihat seluruh pemain dalam room |
+| /sambung start | Memulai pertandingan |
+
 # Words Source
 Thank you for [damzaky](https://github.com/damzaky/kumpulan-kata-bahasa-indonesia-KBBI/blob/master/legacy/indonesian-words.txt)
